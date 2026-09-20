@@ -1,6 +1,8 @@
 # Aletheia — Artificial Scientific Intelligence
 
-> An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
+> **Verification before confidence.**
+
+An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
 
 **Aletheia** is an experimental research project exploring how computational systems can assist with scientific reasoning while maintaining explicit verification, evidence tracking, uncertainty, and reproducibility.
 
@@ -10,7 +12,7 @@ The project is built around a simple principle:
 
 ---
 
-## ⚠️ Project Status
+# ⚠️ Project Status
 
 **Early-stage research — experimental**
 
@@ -191,41 +193,75 @@ Rejecting or suspending a conclusion is considered part of the research process.
 
 ---
 
-# 🏗️ Architecture
+# 🔬 Scientific Knowledge Model
 
-The project is being developed as a modular research framework.
+Aletheia progressively moves toward a structured representation of scientific knowledge.
 
-Planned components include:
+Scientific objects are intended to retain not only their content, but also their scientific context:
 
 ```text
-aletheia/
-│
-├── core/
-│   └── Core research pipeline
-│
-├── reasoning/
-│   └── Structured reasoning
-│
-├── hypothesis/
-│   └── Hypothesis generation and management
-│
-├── verification/
-│   └── Logical and scientific verification
-│
-├── criticism/
-│   └── Self-criticism mechanisms
-│
-├── evidence/
-│   └── Evidence and claim representation
-│
-├── experiments/
-│   └── Reproducible experiments
-│
-└── reporting/
-    └── Scientific research reports
+Type
+Domain
+Assumptions
+Conditions of validity
+Epistemic status
+Provenance
+Relations
 ```
 
-The architecture will evolve as the research progresses.
+This allows Aletheia to distinguish between different forms of scientific knowledge:
+
+```text
+Observation
+Hypothesis
+Model
+Law
+Equation
+Conclusion
+Supported Fact
+Contradicted Claim
+```
+
+The objective is not simply to store more information, but to preserve **how that information is justified, under which conditions it applies, and how it relates to other knowledge**.
+
+---
+
+# 🧠 Memory and Scientific Continuity
+
+Aletheia treats memory as a potential scientific resource rather than merely a storage mechanism.
+
+Persistent research memory is intended to support:
+
+* recall of previous task states
+* retention of evidence and contradictions
+* continuity across sessions
+* explicit provenance for claims and conclusions
+* structured epistemic updates
+* preservation of research history
+
+The objective is to allow knowledge to evolve through explicit updates rather than silent overwrites.
+
+---
+
+# 🏗️ Architecture
+
+Aletheia is being developed as a modular research framework.
+
+The architecture is intentionally modular so that individual research capabilities can be developed, tested, and evaluated independently.
+
+The current research areas include:
+
+```text
+Core reasoning
+Memory
+Science
+Mathematics
+Verification
+Experiments
+Tools
+```
+
+The architecture will evolve as experimental results and research requirements emerge.
 
 ---
 
@@ -275,7 +311,7 @@ What remains uncertain
 
 # 📊 Scientific Confidence
 
-Aletheia will eventually provide structured confidence information based on observable evidence and verification results.
+Aletheia aims to provide structured confidence information based on observable evidence and verification results.
 
 The system will avoid presenting arbitrary numerical "truth percentages" unless the underlying metric is formally defined and experimentally validated.
 
@@ -428,12 +464,14 @@ The test suite will progressively cover:
 
 # 📜 License
 
-This project is currently under active development.
+Aletheia is released under the **MIT License**.
 
-License information will be added before the first public release.
+See [`LICENSE`](LICENSE) for the full license text.
 
 ---
 
 # 🌌 Aletheia
 
 **A research project exploring artificial scientific reasoning through verification, evidence, experimentation, and reproducibility.**
+
+> **Verification before confidence.**
