@@ -1,130 +1,439 @@
-# Aletheia
+# Aletheia — Artificial Scientific Intelligence
 
-Aletheia is a research-oriented artificial scientific intelligence project. This repository currently contains the first operational foundation for Aletheia 0.1, with a structured cognitive state, a working-memory layer, a minimal orchestration loop, controlled Python execution, and a verification engine.
+> An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
 
-## Current implementation status
+**Aletheia** is an experimental research project exploring how computational systems can assist with scientific reasoning while maintaining explicit verification, evidence tracking, uncertainty, and reproducibility.
 
-Implemented in Aletheia 0.1:
+The project is built around a simple principle:
 
-- `CognitiveState` and explicit knowledge types for facts, assumptions, hypotheses, evidence and conclusions.
-- task state machine with valid and invalid transitions.
-- working memory with task-scoped isolation and CRUD operations.
-- cognitive core for understanding, reasoning and conclusion generation.
-- orchestrator executing: Input → Understand → Reason → Tool → Verify → Response.
-- controlled Python tool with timeout and blocked-pattern safeguards.
-- logical verification layer for coherence, unresolved unknowns and contradiction detection.
-- CLI entry point via `python -m alethia`.
-- pytest suite covering the first working loop.
+> **A scientific conclusion should be accompanied by the reasoning, evidence, assumptions, limitations, and verification that support it.**
 
-## Installation
+---
 
-```bash
-python -m pip install -r requirements.txt
+## ⚠️ Project Status
+
+**Early-stage research — experimental**
+
+Aletheia is currently under active development.
+
+The current work focuses on building the foundations required for structured scientific reasoning:
+
+* logical verification
+* self-criticism
+* hypothesis representation
+* evidence tracking
+* reproducible experimentation
+* uncertainty management
+* scientific reporting
+
+Aletheia is **not currently presented as a general artificial intelligence or autonomous scientist**.
+
+The objective is to progressively develop and evaluate the underlying mechanisms required for such systems.
+
+---
+
+# 🔬 Research Direction
+
+Aletheia explores a scientific reasoning pipeline in which a question is transformed into a structured and verifiable research process.
+
+```text
+Question
+   │
+   ▼
+Interpretation
+   │
+   ▼
+Hypotheses
+   │
+   ▼
+Reasoning
+   │
+   ▼
+Verification
+   │
+   ▼
+Self-Criticism
+   │
+   ▼
+Counterexamples
+   │
+   ▼
+Evidence
+   │
+   ▼
+Conclusion
+   │
+   ▼
+Scientific Report
 ```
 
-## Run a task
+The system is designed to make intermediate reasoning and uncertainty explicit rather than hiding them behind a single final answer.
 
-```bash
-python -m alethia "Calculate the derivative of x^2 + 3x + 2"
+---
+
+# 🧠 Core Principles
+
+## 1. Verification
+
+Aletheia should not treat every generated statement as established knowledge.
+
+Claims should be evaluated according to their available evidence and verification status.
+
+Possible states include:
+
+```text
+SUPPORTED
+DERIVED
+HYPOTHESIS
+UNCERTAIN
+CONTRADICTED
+```
+
+These states are intended to distinguish established evidence from inference and speculation.
+
+---
+
+## 2. Self-Criticism
+
+Aletheia includes a verification and self-criticism layer designed to question its own conclusions.
+
+Potential checks include:
+
+* logical consistency
+* mathematical consistency
+* contradictory evidence
+* unsupported assumptions
+* methodological weaknesses
+* missing evidence
+* reproducibility problems
+
+The purpose is not to make the system appear more confident, but to identify where a conclusion may be unreliable.
+
+---
+
+## 3. Evidence
+
+Scientific claims should be connected to evidence whenever possible.
+
+Aletheia aims to maintain explicit relationships between:
+
+```text
+Claim
+  │
+  ├── Evidence
+  ├── Assumptions
+  ├── Experiments
+  ├── Sources
+  ├── Verification
+  └── Limitations
+```
+
+This allows conclusions to be inspected rather than treated as opaque outputs.
+
+---
+
+## 4. Reproducibility
+
+A scientific result should ideally be reproducible.
+
+Research records will therefore aim to preserve:
+
+```text
+Hypothesis
+Parameters
+Methods
+Data
+Code
+Results
+Verification
+Conclusion
+```
+
+The long-term goal is for experiments performed by Aletheia to produce reproducible research records that can be independently inspected.
+
+---
+
+# 🧪 Research Model
+
+Aletheia explores a structured research lifecycle:
+
+```text
+UNKNOWN
+   ↓
+OBSERVED
+   ↓
+HYPOTHESIZED
+   ↓
+DERIVED
+   ↓
+SIMULATED
+   ↓
+EXPERIMENTALLY TESTED
+   ↓
+REPLICATED
+```
+
+Not every hypothesis is expected to reach the final stages.
+
+A valid scientific outcome may also be:
+
+```text
+INSUFFICIENT EVIDENCE
 ```
 
 or:
 
-```bash
-python -m alethia "Solve 2x + 4 = 10"
+```text
+CONTRADICTED
 ```
 
-## Run tests
+Rejecting or suspending a conclusion is considered part of the research process.
 
-```bash
-python -m pytest -q
-```
+---
 
-## Project structure
+# 🏗️ Architecture
+
+The project is being developed as a modular research framework.
+
+Planned components include:
 
 ```text
-Aletheia/
-├── README.md
-├── ARCHITECTURE.md
-├── ROADMAP.md
-├── RESEARCH.md
-├── requirements.txt
-├── alethia/
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── core/
-│   │   ├── cognition/
-│   │   │   ├── __init__.py
-│   │   │   ├── cognitive_core.py
-│   │   │   ├── cognitive_state.py
-│   │   │   └── types.py
-│   │   └── orchestration/
-│   │       ├── __init__.py
-│   │       └── orchestrator.py
-│   ├── memory/
-│   │   ├── __init__.py
-│   │   └── working_memory/
-│   │       └── __init__.py
-│   ├── tools/
-│   │   ├── __init__.py
-│   │   └── python/
-│   │       ├── __init__.py
-│   │       └── tool.py
-│   └── verification/
-│       ├── __init__.py
-│       └── logical/
-│           ├── __init__.py
-│           └── verifier.py
-├── docs/
-│   └── cognitive_core.md
-├── tests/
-│   └── test_alethia_0_1.py
-├── .gitignore
-└── .pytest_cache/
+aletheia/
+│
+├── core/
+│   └── Core research pipeline
+│
+├── reasoning/
+│   └── Structured reasoning
+│
+├── hypothesis/
+│   └── Hypothesis generation and management
+│
+├── verification/
+│   └── Logical and scientific verification
+│
+├── criticism/
+│   └── Self-criticism mechanisms
+│
+├── evidence/
+│   └── Evidence and claim representation
+│
+├── experiments/
+│   └── Reproducible experiments
+│
+└── reporting/
+    └── Scientific research reports
 ```
 
-## Current capabilities
+The architecture will evolve as the research progresses.
 
-Aletheia 0.7 extends the 0.1–0.6 foundation with a first explicit verification and self-criticism layer.
+---
 
-It currently supports:
+# 🔎 Example Research Workflow
 
-- structured task representation via `CognitiveState`;
-- explicit separation between `Fact`, `Hypothesis`, `Assumption`, `Observation`, `Evidence`, `Inference` and `Conclusion`;
-- valid task transitions enforced by the state machine;
-- working memory with task-scoped isolation;
-- persistent memory storage using SQLite via `MemoryRepository`;
-- episodic memory storage for completed tasks and outcomes;
-- semantic memory for structured knowledge objects with epistemic status;
-- provenance tracking to record `DERIVED_FROM` and `CONTRADICTS` relations;
-- retrieval of relevant previous experience through `MemoryManager.retrieve()`;
-- explicit formal reasoning traces with a `ReasoningEngine`;
-- symbolic mathematics through SymPy: solving, differentiation, simplification, integration and limits;
-- scientific knowledge objects such as `LAW`, `THEORY`, `MODEL`, `EQUATION`, `HYPOTHESIS`, `ASSUMPTION`, `CONSTRAINT` and `OBSERVATION`;
-- scientific knowledge persistence and retrieval by domain, subdomain, concept and equation;
-- controlled hypothesis generation from questions and contradictions;
-- explicit hypothesis evaluation status (`PROPOSED`, `UNDER_EVALUATION`, `SUPPORTED`, `CONTRADICTED`, `UNRESOLVED`, etc.);
-- prediction and provenance tracking for generated hypotheses;
-- a first experiment and simulation model (`Experiment`, `Simulation`, `ObservationRecord`, `PredictionComparison`);
-- a minimal execution backend abstraction for local deterministic compute;
-- reproducibility metadata and parameter tracking for experiments;
-- explicit verification result records with status, checks, evidence, contradictions, assumptions, and provenance;
-- a self-criticism engine that reviews outputs before treating them as sufficiently supported;
-- controlled Python execution with timeout and static analysis against dangerous patterns;
-- verification output labeled by structured status such as `VALID`, `VERIFIED`, `SUPPORTED`, `INSUFFICIENT_EVIDENCE` or `CONTRADICTORY`;
-- command-line execution through `python -m alethia`.
+A future Aletheia investigation could look like:
 
-## Known limitations
+```text
+aletheia investigate "Does X cause Y?"
+```
 
-Aletheia 0.7 is still not a general scientific intelligence system. It remains a controlled prototype with:
+The system would progressively construct:
 
-- no autonomous multi-domain research engine;
-- no large-scale scientific knowledge graph or vector retrieval yet;
-- no unrestricted system access;
-- no real-world experimentation or dangerous tool execution;
-- a non-sandboxed Python execution model that should be replaced by a real isolated worker in later versions;
-- scientific knowledge, hypothesis, experimental and verification results are still limited to structured and keyword-based reasoning rather than full epistemic automation;
-- the simulation layer remains a controlled computational model rather than a general-purpose scientific simulator;
-- verification is explicit and bounded rather than universal, and it is designed to prevent overconfidence rather than to claim certainty.
+```text
+Research Question
+        │
+        ├── Definitions
+        │
+        ├── Hypotheses
+        │
+        ├── Supporting Evidence
+        │
+        ├── Contradictory Evidence
+        │
+        ├── Assumptions
+        │
+        ├── Verification
+        │
+        ├── Counterexamples
+        │
+        └── Missing Evidence
+                 │
+                 ▼
+             Conclusion
+```
 
-The goal is to provide a disciplined verification and self-criticism layer for future research loops without overstating the system's intelligence.
+The output should explicitly distinguish between:
+
+```text
+What is known
+What is derived
+What is hypothesized
+What remains uncertain
+```
+
+---
+
+# 📊 Scientific Confidence
+
+Aletheia will eventually provide structured confidence information based on observable evidence and verification results.
+
+The system will avoid presenting arbitrary numerical "truth percentages" unless the underlying metric is formally defined and experimentally validated.
+
+Confidence should be justified by evidence rather than generated as an unexplained number.
+
+---
+
+# 🧬 Long-Term Research Goals
+
+The long-term objective is to investigate whether a computational system can progressively integrate:
+
+* scientific reasoning
+* hypothesis generation
+* mathematical reasoning
+* simulation
+* experimentation
+* evidence evaluation
+* contradiction detection
+* self-criticism
+* reproducibility
+* scientific reporting
+
+The project will prioritize **measurable capabilities and reproducible experiments** over claims of intelligence.
+
+---
+
+# 🧪 Development Roadmap
+
+## Phase 0 — Foundations
+
+* [x] Initial project structure
+* [x] Verification layer
+* [x] Self-criticism layer
+* [ ] Claim representation
+* [ ] Evidence model
+* [ ] Research state model
+
+## Phase 1 — Scientific Reasoning
+
+* [ ] Structured reasoning engine
+* [ ] Hypothesis representation
+* [ ] Assumption tracking
+* [ ] Contradiction detection
+* [ ] Counterexample engine
+
+## Phase 2 — Experimental Research
+
+* [ ] Experiment framework
+* [ ] Reproducible research records
+* [ ] Dataset management
+* [ ] Simulation integration
+* [ ] Result verification
+
+## Phase 3 — Scientific Reporting
+
+* [ ] Automated research reports
+* [ ] Evidence graphs
+* [ ] Research timelines
+* [ ] Uncertainty reports
+* [ ] Reproducibility reports
+
+## Phase 4 — Research Interface
+
+* [ ] Command-line interface
+* [ ] Interactive investigations
+* [ ] Research visualization
+* [ ] Knowledge graph
+* [ ] Experiment dashboard
+
+---
+
+# 🧭 Research Philosophy
+
+Aletheia is built around several principles:
+
+> **Evidence before certainty.**
+
+> **Hypotheses are not facts.**
+
+> **Uncertainty is a valid result.**
+
+> **Contradictions should be exposed, not hidden.**
+
+> **Experiments should be reproducible.**
+
+> **Scientific conclusions should remain inspectable.**
+
+---
+
+# 📚 Research Documentation
+
+Research notes, experiments, methodologies, and technical decisions will progressively be documented in the repository.
+
+The objective is to maintain a clear separation between:
+
+```text
+Research
+   │
+   ├── Hypotheses
+   ├── Experiments
+   ├── Results
+   └── Conclusions
+
+Implementation
+   │
+   ├── Algorithms
+   ├── Models
+   ├── Tests
+   └── Infrastructure
+```
+
+This allows scientific ideas to be evaluated independently from their implementation.
+
+---
+
+# ⚙️ Installation
+
+> Installation instructions will be expanded as the project reaches its first usable release.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence.git
+cd Aletheia-Artificial-Scientific-Intelligence
+```
+
+---
+
+# 🧪 Testing
+
+Aletheia uses automated tests to validate its research components.
+
+Run:
+
+```bash
+pytest
+```
+
+The test suite will progressively cover:
+
+* logical verification
+* self-criticism
+* hypothesis handling
+* evidence tracking
+* experiments
+* reproducibility
+* reporting
+
+---
+
+# 📜 License
+
+This project is currently under active development.
+
+License information will be added before the first public release.
+
+---
+
+# 🌌 Aletheia
+
+**A research project exploring artificial scientific reasoning through verification, evidence, experimentation, and reproducibility.**
