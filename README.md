@@ -2,6 +2,8 @@
 
 [![Tests](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml/badge.svg)](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > **Verification before confidence.**
 
 An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
