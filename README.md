@@ -1,5 +1,7 @@
 # Aletheia — Artificial Scientific Intelligence
 
+[![Tests](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml/badge.svg)](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml)
+
 > **Verification before confidence.**
 
 An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
