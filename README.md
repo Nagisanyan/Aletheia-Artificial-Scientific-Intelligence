@@ -1,91 +1,83 @@
 # Aletheia — Artificial Scientific Intelligence
 
 [![Tests](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml/badge.svg)](https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intelligence/actions/workflows/python-app.yml)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Verification before confidence.**
 
-An experimental framework for artificial scientific reasoning, verification, hypothesis generation, and reproducible research.
+Aletheia is an open-source research project exploring **traceable computational scientific reasoning**.
 
-**Aletheia** is an experimental research project exploring how computational systems can assist with scientific reasoning while maintaining explicit verification, evidence tracking, uncertainty, and reproducibility.
+The project investigates how a computational system can work through scientific problems while keeping track of:
 
-The project is built around a simple principle:
+- hypotheses
+- assumptions
+- reasoning steps
+- evidence
+- provenance
+- verification
+- contradictions
+- uncertainty
+- reproducibility
 
-> **A scientific conclusion should be accompanied by the reasoning, evidence, assumptions, limitations, and verification that support it.**
+The goal is not simply to produce an answer.
 
----
-
-# ⚠️ Project Status
-
-**Early-stage research — experimental**
-
-Aletheia is currently under active development.
-
-The current work focuses on building the foundations required for structured scientific reasoning:
-
-* logical verification
-* self-criticism
-* hypothesis representation
-* evidence tracking
-* reproducible experimentation
-* uncertainty management
-* scientific reporting
-
-Aletheia is **not currently presented as a general artificial intelligence or autonomous scientist**.
-
-The objective is to progressively develop and evaluate the underlying mechanisms required for such systems.
+The goal is to make the **process behind an answer inspectable**.
 
 ---
 
-# 🔬 Research Direction
+## Why Aletheia?
 
-Aletheia explores a scientific reasoning pipeline in which a question is transformed into a structured and verifiable research process.
+Scientific reasoning is more than generating a plausible conclusion.
+
+A useful research system should be able to distinguish between:
+
+- what is known
+- what is assumed
+- what is derived
+- what is hypothesized
+- what has been tested
+- what remains uncertain
+- what has been contradicted
+
+Aletheia is an experiment around this idea.
+
+The project asks:
+
+> **Can a computational research process keep enough structure around a result that another person can inspect how it was produced, what assumptions were made, and where the uncertainty remains?**
+
+I wanted to experiment with a scientific reasoning architecture without hiding the intermediate steps behind a single answer.
+
+---
+
+# Research Model
+
+Aletheia is built around a structured research loop:
 
 ```text
 Question
-   │
-   ▼
+   ↓
 Interpretation
-   │
-   ▼
+   ↓
 Hypotheses
-   │
-   ▼
+   ↓
 Reasoning
-   │
-   ▼
+   ↓
 Verification
-   │
-   ▼
+   ↓
 Self-Criticism
-   │
-   ▼
+   ↓
 Counterexamples
-   │
-   ▼
+   ↓
 Evidence
-   │
-   ▼
+   ↓
 Conclusion
-   │
-   ▼
+   ↓
 Scientific Report
 ```
 
-The system is designed to make intermediate reasoning and uncertainty explicit rather than hiding them behind a single final answer.
+A conclusion is not required to be positive.
 
----
-
-# 🧠 Core Principles
-
-## 1. Verification
-
-Aletheia should not treat every generated statement as established knowledge.
-
-Claims should be evaluated according to their available evidence and verification status.
-
-Possible states include:
+Possible outcomes include:
 
 ```text
 SUPPORTED
@@ -93,75 +85,182 @@ DERIVED
 HYPOTHESIS
 UNCERTAIN
 CONTRADICTED
+INSUFFICIENT EVIDENCE
 ```
 
-These states are intended to distinguish established evidence from inference and speculation.
+This is intentional.
+
+An inconclusive result can be scientifically useful when the available evidence is insufficient to justify a stronger conclusion.
 
 ---
 
-## 2. Self-Criticism
+# What Aletheia currently explores
 
-Aletheia includes a verification and self-criticism layer designed to question its own conclusions.
+The current project contains experimental foundations for:
 
-Potential checks include:
+### Scientific knowledge
 
-* logical consistency
-* mathematical consistency
-* contradictory evidence
-* unsupported assumptions
-* methodological weaknesses
-* missing evidence
-* reproducibility problems
+Structured representations of scientific information, including:
 
-The purpose is not to make the system appear more confident, but to identify where a conclusion may be unreliable.
+- definitions
+- equations
+- models
+- laws
+- hypotheses
+- assumptions
+- constraints
+- conclusions
+- epistemic status
+- provenance
+
+### Hypothesis reasoning
+
+Aletheia can represent explicit hypotheses and work with:
+
+- predictions
+- evidence
+- contradictions
+- falsification checks
+- comparisons between expected and observed results
+
+### Mathematical reasoning
+
+The project includes computational experiments around:
+
+- symbolic expressions
+- equation solving
+- differentiation
+- mathematical validation
+- derivation traces
+
+### Computational experiments
+
+Experiments can record:
+
+- parameters
+- expected results
+- observed results
+- execution information
+- reproducibility metadata
+- result summaries
+
+### Verification
+
+Verification currently explores:
+
+- contradiction detection
+- mathematical checks
+- counterexamples
+- hidden assumptions
+- confirmation-bias checks
+- limitation logging
+- provenance
+
+### Research memory
+
+Aletheia also experiments with persistent scientific memory for storing:
+
+- previous research results
+- scientific knowledge
+- task history
+- provenance
+- epistemic status
 
 ---
 
-## 3. Evidence
+# A Simple Example
 
-Scientific claims should be connected to evidence whenever possible.
-
-Aletheia aims to maintain explicit relationships between:
+A scientific reasoning process can be represented as:
 
 ```text
-Claim
-  │
-  ├── Evidence
-  ├── Assumptions
-  ├── Experiments
-  ├── Sources
-  ├── Verification
-  └── Limitations
+Question:
+How fast is an object moving if it travels 20 metres in 2 seconds?
+
+        ↓
+
+Hypothesis:
+The object's average velocity is constant over the measured interval.
+
+        ↓
+
+Prediction:
+v = d / t
+
+v = 20 / 2
+
+v = 10 m/s
+
+        ↓
+
+Experiment:
+Distance = 20 m
+Time = 2 s
+
+        ↓
+
+Observation:
+Measured average velocity = 10 m/s
+
+        ↓
+
+Comparison:
+Predicted value = 10 m/s
+Observed value  = 10 m/s
+
+        ↓
+
+Verification:
+No discrepancy detected within the chosen comparison criteria.
+
+        ↓
+
+Conclusion:
+SUPPORTED
 ```
 
-This allows conclusions to be inspected rather than treated as opaque outputs.
+The important part is not the difficulty of this particular calculation.
+
+The important part is the structure:
+
+**question → hypothesis → prediction → observation → comparison → verification → conclusion**
+
+More complex experiments can use the same general pattern while recording additional assumptions, evidence, uncertainty and provenance.
 
 ---
 
-## 4. Reproducibility
+# Scientific Knowledge Model
 
-A scientific result should ideally be reproducible.
+Aletheia attempts to keep scientific information structured rather than treating every statement as equivalent.
 
-Research records will therefore aim to preserve:
+For example:
 
 ```text
+Observation
+    ↓
 Hypothesis
-Parameters
-Methods
-Data
-Code
-Results
+    ↓
+Model
+    ↓
+Prediction
+    ↓
+Experiment
+    ↓
+Result
+    ↓
 Verification
+    ↓
 Conclusion
 ```
 
-The long-term goal is for experiments performed by Aletheia to produce reproducible research records that can be independently inspected.
+Each object can carry information about its epistemic status and provenance.
+
+This makes it possible to distinguish a measured observation from a hypothesis or a derived mathematical result.
 
 ---
 
-# 🧪 Research Model
+# Research Lifecycle
 
-Aletheia explores a structured research lifecycle:
+Aletheia uses an experimental research lifecycle:
 
 ```text
 UNKNOWN
@@ -179,261 +278,190 @@ EXPERIMENTALLY TESTED
 REPLICATED
 ```
 
-Not every hypothesis is expected to reach the final stages.
+Not every research result will progress through every stage.
 
-A valid scientific outcome may also be:
-
-```text
-INSUFFICIENT EVIDENCE
-```
-
-or:
-
-```text
-CONTRADICTED
-```
-
-Rejecting or suspending a conclusion is considered part of the research process.
+The purpose of the lifecycle is to make the current state of knowledge explicit.
 
 ---
 
-# 🔬 Scientific Knowledge Model
+# Core Principles
 
-Aletheia progressively moves toward a structured representation of scientific knowledge.
+## 1. Verification before confidence
 
-Scientific objects are intended to retain not only their content, but also their scientific context:
+Aletheia should not treat a plausible answer as automatically reliable.
 
-```text
-Type
-Domain
-Assumptions
-Conditions of validity
-Epistemic status
-Provenance
-Relations
-```
-
-This allows Aletheia to distinguish between different forms of scientific knowledge:
-
-```text
-Observation
-Hypothesis
-Model
-Law
-Equation
-Conclusion
-Supported Fact
-Contradicted Claim
-```
-
-The objective is not simply to store more information, but to preserve **how that information is justified, under which conditions it applies, and how it relates to other knowledge**.
+Results should be checked whenever meaningful verification is possible.
 
 ---
 
-# 🧠 Memory and Scientific Continuity
+## 2. Explicit uncertainty
 
-Aletheia treats memory as a potential scientific resource rather than merely a storage mechanism.
+Uncertainty is part of the result.
 
-Persistent research memory is intended to support:
+If the available evidence does not justify a conclusion, the system should be able to say so.
 
-* recall of previous task states
-* retention of evidence and contradictions
-* continuity across sessions
-* explicit provenance for claims and conclusions
-* structured epistemic updates
-* preservation of research history
+> **INSUFFICIENT EVIDENCE**
 
-The objective is to allow knowledge to evolve through explicit updates rather than silent overwrites.
+is a valid outcome.
 
 ---
 
-# 🏗️ Architecture
+## 3. Traceability
 
-Aletheia is being developed as a modular research framework.
+Important results should retain information about how they were obtained.
 
-The architecture is intentionally modular so that individual research capabilities can be developed, tested, and evaluated independently.
+A researcher should be able to inspect:
 
-The current research areas include:
-
-```text
-Core reasoning
-Memory
-Science
-Mathematics
-Verification
-Experiments
-Tools
-```
-
-The architecture will evolve as experimental results and research requirements emerge.
+- the input
+- the assumptions
+- the reasoning
+- the evidence
+- the verification
+- the limitations
 
 ---
 
-# 🔎 Example Research Workflow
+## 4. Reproducibility
 
-A future Aletheia investigation could look like:
+Computational experiments should contain enough information to make reproduction possible where practical.
 
-```text
-aletheia investigate "Does X cause Y?"
-```
+This includes things such as:
 
-The system would progressively construct:
-
-```text
-Research Question
-        │
-        ├── Definitions
-        │
-        ├── Hypotheses
-        │
-        ├── Supporting Evidence
-        │
-        ├── Contradictory Evidence
-        │
-        ├── Assumptions
-        │
-        ├── Verification
-        │
-        ├── Counterexamples
-        │
-        └── Missing Evidence
-                 │
-                 ▼
-             Conclusion
-```
-
-The output should explicitly distinguish between:
-
-```text
-What is known
-What is derived
-What is hypothesized
-What remains uncertain
-```
+- parameters
+- inputs
+- execution information
+- expected results
+- observed results
 
 ---
 
-# 📊 Scientific Confidence
+## 5. Self-Criticism
 
-Aletheia aims to provide structured confidence information based on observable evidence and verification results.
+Aletheia explores mechanisms that challenge its own reasoning.
 
-The system will avoid presenting arbitrary numerical "truth percentages" unless the underlying metric is formally defined and experimentally validated.
+Examples include:
 
-Confidence should be justified by evidence rather than generated as an unexplained number.
+- contradiction checks
+- counterexamples
+- hidden assumptions
+- mathematical validation
+- alternative interpretations
+- limitation detection
 
----
+The purpose is not to guarantee correctness.
 
-# 🧬 Long-Term Research Goals
-
-The long-term objective is to investigate whether a computational system can progressively integrate:
-
-* scientific reasoning
-* hypothesis generation
-* mathematical reasoning
-* simulation
-* experimentation
-* evidence evaluation
-* contradiction detection
-* self-criticism
-* reproducibility
-* scientific reporting
-
-The project will prioritize **measurable capabilities and reproducible experiments** over claims of intelligence.
+The purpose is to make failure easier to detect.
 
 ---
 
-# 🧪 Development Roadmap
+# Project Status
 
-## Phase 0 — Foundations
+Aletheia is an **early-stage experimental research project**.
 
-* [x] Initial project structure
-* [x] Verification layer
-* [x] Self-criticism layer
-* [ ] Claim representation
-* [ ] Evidence model
-* [ ] Research state model
+Current development is focused on building and evaluating the foundations required for traceable scientific reasoning.
 
-## Phase 1 — Scientific Reasoning
+Current foundations include:
 
-* [ ] Structured reasoning engine
-* [ ] Hypothesis representation
-* [ ] Assumption tracking
-* [ ] Contradiction detection
-* [ ] Counterexample engine
+- persistent research memory
+- scientific knowledge representation
+- mathematical reasoning
+- hypothesis representation
+- computational experimentation
+- verification
+- self-criticism
+- provenance tracking
+- automated testing
 
-## Phase 2 — Experimental Research
-
-* [ ] Experiment framework
-* [ ] Reproducible research records
-* [ ] Dataset management
-* [ ] Simulation integration
-* [ ] Result verification
-
-## Phase 3 — Scientific Reporting
-
-* [ ] Automated research reports
-* [ ] Evidence graphs
-* [ ] Research timelines
-* [ ] Uncertainty reports
-* [ ] Reproducibility reports
-
-## Phase 4 — Research Interface
-
-* [ ] Command-line interface
-* [ ] Interactive investigations
-* [ ] Research visualization
-* [ ] Knowledge graph
-* [ ] Experiment dashboard
+The project remains under active research and development.
 
 ---
 
-# 🧭 Research Philosophy
+# What Aletheia is NOT
 
-Aletheia is built around several principles:
+Aletheia is deliberately **not** presented as:
 
-> **Evidence before certainty.**
+- AGI
+- an autonomous scientist
+- a universal problem solver
+- a replacement for scientific experimentation
+- a system capable of independently proving scientific theories
+- a universal scientific verification system
 
-> **Hypotheses are not facts.**
+The current implementation has significant limitations.
 
-> **Uncertainty is a valid result.**
-
-> **Contradictions should be exposed, not hidden.**
-
-> **Experiments should be reproducible.**
-
-> **Scientific conclusions should remain inspectable.**
-
----
-
-# 📚 Research Documentation
-
-Research notes, experiments, methodologies, and technical decisions will progressively be documented in the repository.
-
-The objective is to maintain a clear separation between:
-
-```text
-Research
-   │
-   ├── Hypotheses
-   ├── Experiments
-   ├── Results
-   └── Conclusions
-
-Implementation
-   │
-   ├── Algorithms
-   ├── Models
-   ├── Tests
-   └── Infrastructure
-```
-
-This allows scientific ideas to be evaluated independently from their implementation.
+These limitations are part of the research rather than something the project intends to hide.
 
 ---
 
-# ⚙️ Installation
+# Current Limitations
 
-> Installation instructions will be expanded as the project reaches its first usable release.
+Some important limitations include:
+
+### Reasoning
+
+The reasoning system is still limited and largely structured around explicit computational mechanisms.
+
+It does not provide general scientific intelligence.
+
+### Knowledge retrieval
+
+Knowledge retrieval is currently primarily lexical/structured rather than a complete semantic scientific knowledge system.
+
+### Simulations
+
+The experimental simulation layer is lightweight and intended for computational experimentation rather than realistic physical simulation.
+
+### Verification
+
+Verification is bounded by the checks that have actually been implemented.
+
+A successful verification step does **not** constitute universal scientific proof.
+
+### Hypotheses
+
+Hypotheses are explicit and bounded by the representations and reasoning mechanisms currently available.
+
+### Execution safety
+
+The local Python execution backend should not be considered a secure sandbox for arbitrary untrusted code.
+
+---
+
+# Development Roadmap
+
+The research roadmap is organized into milestones:
+
+| Milestone | Focus | Status |
+|---|---|---|
+| 0.1 | Cognitive Foundation | Implemented |
+| 0.2 | Persistent Memory | Implemented |
+| 0.3 | Reasoning & Tools | Implemented |
+| 0.4 | Scientific Knowledge System | Implemented |
+| 0.5 | Hypothesis Engine | Implemented |
+| 0.6 | Simulation & Experimentation | Implemented |
+| 0.7 | Verification & Self-Criticism | Implemented |
+| 0.8 | Scientific Discovery Loop | Planned |
+| 0.9 | Constrained Autonomous Planning | Planned |
+| 1.0 | Integrated Research Prototype | Planned |
+
+The detailed roadmap is available in [`ROADMAP.md`](ROADMAP.md).
+
+---
+
+# Research Documentation
+
+The repository contains several documents describing the research direction and architecture.
+
+- [`RESEARCH.md`](RESEARCH.md) — research principles, assumptions and scientific objectives
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — system architecture
+- [`ROADMAP.md`](ROADMAP.md) — development and research milestones
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution guidelines
+
+The project intentionally keeps research documentation alongside the implementation.
+
+---
+
+# Quick Start
 
 Clone the repository:
 
@@ -442,40 +470,145 @@ git clone https://github.com/Nagisanyan/Aletheia-Artificial-Scientific-Intellige
 cd Aletheia-Artificial-Scientific-Intelligence
 ```
 
----
+Install the dependencies:
 
-# 🧪 Testing
+```bash
+python -m pip install -r requirements.txt
+```
 
-Aletheia uses automated tests to validate its research components.
-
-Run:
+Run the test suite:
 
 ```bash
 pytest
 ```
 
-The test suite will progressively cover:
-
-* logical verification
-* self-criticism
-* hypothesis handling
-* evidence tracking
-* experiments
-* reproducibility
-* reporting
+The repository also contains experimental modules and examples that can be explored directly.
 
 ---
 
-# 📜 License
+# Evaluation
 
-Aletheia is released under the **MIT License**.
+Aletheia is intended to be evaluated through reproducible experiments rather than demonstrations alone.
 
-See [`LICENSE`](LICENSE) for the full license text.
+Evaluation should examine whether the system can:
+
+1. interpret a scientific problem
+2. distinguish known information from assumptions
+3. represent explicit hypotheses
+4. construct traceable reasoning
+5. detect contradictions
+6. identify counterexamples
+7. verify mathematical results
+8. track evidence and provenance
+9. communicate uncertainty
+10. reproduce computational results
+
+A successful experiment does not necessarily mean that the system is correct.
+
+Useful outcomes can also include:
+
+```text
+UNCERTAIN
+CONTRADICTED
+INSUFFICIENT EVIDENCE
+```
+
+The objective is therefore not simply to maximize the number of successful answers.
+
+The objective is to understand:
+
+- where the system succeeds
+- where it fails
+- why it fails
+- what evidence supports the result
+- what assumptions affect the result
 
 ---
 
-# 🌌 Aletheia
+# Contributing
 
-**A research project exploring artificial scientific reasoning through verification, evidence, experimentation, and reproducibility.**
+Aletheia is an experimental open-source project.
 
-> **Verification before confidence.**
+Contributions can take many forms:
+
+- code
+- tests
+- scientific examples
+- documentation
+- reproducibility experiments
+- mathematical checks
+- criticism
+- alternative approaches
+- research ideas
+
+If you find something that appears incorrect, unclear or unnecessarily complicated, opening an issue is encouraged.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for more information.
+
+---
+
+# Research Philosophy
+
+Aletheia is built around a simple idea:
+
+> **A scientific system should make it possible to question its conclusions.**
+
+A result that cannot be inspected, challenged or reproduced is difficult to evaluate scientifically.
+
+The project therefore prioritizes:
+
+```text
+Evidence
+   +
+Traceability
+   +
+Verification
+   +
+Reproducibility
+   +
+Explicit Uncertainty
+```
+
+over simply producing confident-looking answers.
+
+---
+
+# Long-Term Direction
+
+The long-term research direction is to investigate whether increasingly structured computational systems can support more complex scientific research workflows while keeping their reasoning and evidence inspectable.
+
+The project is deliberately taking an incremental approach:
+
+```text
+Structured Knowledge
+        ↓
+Traceable Reasoning
+        ↓
+Verification
+        ↓
+Hypothesis Testing
+        ↓
+Computational Experimentation
+        ↓
+Scientific Discovery Loop
+        ↓
+Constrained Research Planning
+```
+
+Whether these mechanisms can scale into genuinely useful scientific reasoning systems is an open research question.
+
+Aletheia is an attempt to investigate that question experimentally.
+
+---
+
+# License
+
+Aletheia is released under the MIT License.
+
+See [`LICENSE`](LICENSE) for details.
+
+---
+
+**Aletheia — Artificial Scientific Intelligence**
+
+> **Better questions. Better checks. More inspectable results.**
